@@ -31,7 +31,7 @@ class App : RComponent<RProps, AppState>() {
     override fun RBuilder.render() {
         div("container") {
             h1("text-center") {
-                +"Giphy Search"
+                +"Giphy Search!!!"
             }
             searchBar(onSearchTermChange = lodash.debounce(::startSearchCoroutines, 300))
             alert(state.errorMessage)

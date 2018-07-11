@@ -58,15 +58,14 @@ val PUBLIC_BETA_API_KEY = "dc6zaTOxFJmzC"
 
 val GIPHY_SEARCH = "https://api.giphy.com/v1/gifs/search"
 
-data class GiphySearchResponse(val data:Array<Giphy>)
+data class GiphySearchResponse(val data: Array<Giphy>)
 
 fun giphyUrl(searchTerm: String) = "${GIPHY_SEARCH}?q=${searchTerm}&limit=7&api_key=${PUBLIC_BETA_API_KEY}"
 
-fun giphySearch(searchTerm: String):Promise<Array<Giphy>> {
+fun giphySearchgiphySearch(searchTerm: String): Promise<Array<Giphy>> {
 
-    return Axios.get<GiphySearchResponse>(giphyUrl(searchTerm)).then { result ->
-         result.data.data
-    }
+    return Axios.get<GiphySearchResponse>(giphyUrl(searchTerm))
+            .then { result -> result.data.data }
 }
 
 suspend fun giphySearchCoroutines(searchTerm: String): Array<Giphy> {
